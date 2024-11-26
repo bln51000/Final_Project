@@ -45,4 +45,19 @@ public class CollisionHandler : MonoBehaviour
         int currentIndex = sceneManager.buildIndex;
         SceneManager.LoadScene(currentIndex);
     }
+
+        // Detecting collisions from the first person perspective
+     private void OnControllerColliderHit(ControllerColliderHit hit) {
+        switch(hit.gameObject.tag){
+            case "Next":
+            // Checking the normal to see if the normal is pointing upwards.
+            // When the player is on top of the cube, the normal will point in the opposite direction of gravity
+            if(Vector3.Dot(hit.normal, Vector3.up) > 0.5f)
+            ReloadNextLevel();
+            break;            
+            case "Friendly":
+            Debug.Log("Friendly");
+            break;
+        }
+    }
 }
