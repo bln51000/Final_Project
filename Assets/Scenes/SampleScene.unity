@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d60978f8eb914e9842630dd2dc191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hopTime: 4
 --- !u!1 &438943314
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d60978f8eb914e9842630dd2dc191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hopTime: 2
 --- !u!65 &1537360573
 BoxCollider:
   m_ObjectHideFlags: 0

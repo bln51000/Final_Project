@@ -5,6 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    float endTime;
+    [SerializeField] float hopTime = 2f;
+
+    
+    void Start(){
+        endTime = Time.time + hopTime;
+    }
+
+    void Update(){
+        if (Time.time > endTime){
+            ReloadLevel();
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Player jumped, resetting timer.");
+            // isInContactWithFriendly = false;
+            endTime = Time.time + hopTime;
+        }
+    }
     private void OnCollisionEnter(Collision other) {
         Debug.Log(other.gameObject.tag);
         switch(other.gameObject.tag){
@@ -46,6 +66,7 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentIndex);
     }
 
+
         // Detecting collisions from the first person perspective
      private void OnControllerColliderHit(ControllerColliderHit hit) {
         switch(hit.gameObject.tag){
@@ -57,7 +78,7 @@ public class CollisionHandler : MonoBehaviour
             break;            
             case "Friendly":
             Debug.Log("Friendly");
-            if()
+            endTime = Time.time + hopTime;
             break;
             case "Finish":
             GetComponent<EndGame>().EndGameHandler();
