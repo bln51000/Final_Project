@@ -57,6 +57,15 @@ public class CollisionHandler : MonoBehaviour
             break;            
             case "Friendly":
             Debug.Log("Friendly");
+            if()
+            break;
+            case "Finish":
+            GetComponent<EndGame>().EndGameHandler();
+            //ReloadNextLevel();
+            break;
+            case "Respawn":
+            //Debug.Log("The collision is friendly");
+            ReloadLevel();
             break;
         }
     }
